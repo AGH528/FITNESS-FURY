@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Fury Challenges</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ff0000, #ffcc00, #ffffff, #000000);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .page-title {
+      font-size: 4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #ff4500, #ffcc00, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0px 0px 20px #ff4500, 0px 0px 10px #ffffff;
+      margin: 0;
+    }
+
+    .btn-back-to-login {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ff4500;
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-back-to-login:hover {
+      background-color: #ffcc00;
+    }
+
+    .challenge-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    .challenge-item {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .challenge-item:hover {
+      transform: scale(1.05);
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin: 0 0 15px;
+      text-align: center;
+    }
+
+    .progress-bar-container {
+      background: #333;
+      border-radius: 8px;
+      height: 25px;
+      width: 100%;
+      margin: 15px 0;
+      overflow: hidden;
+      box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .progress-bar {
+      height: 100%;
+      text-align: center;
+      line-height: 25px;
+      color: #000;
+      font-size: 1rem;
+      transition: width 0.4s ease-in-out;
+    }
+
+    .low {
+      background: #ff4500;
+    }
+
+    .medium {
+      background: #ffcc00;
+    }
+
+    .high {
+      background: #32cd32;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ff4500;
+      color: #fff;
+      padding: 12px 18px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease-in-out;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #ffcc00;
+    }
+
+    .fas {
+      margin-right: 5px;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="page-title">Fitness Fury Challenges</h1>
+    <a href="/login" class="btn-back-to-login">Back to Login</a>
+  </header>
+  <main>
+    <% if (challenges && challenges.length > 0) { %>
+      <ul class="challenge-list">
+        <% challenges.forEach(function(challenge) { %>
+          <li class="challenge-item">
+            <h2><%= challenge.name.toUpperCase() %></h2>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar <%= (challenge.progress / challenge.goal) < 0.3 ? 'low' : (challenge.progress / challenge.goal) < 0.7 ? 'medium' : 'high' %>"
+                style="width: <%= Math.min((challenge.progress / challenge.goal) * 100, 100) %>%;">
+                <%= Math.min((challenge.progress / challenge.goal) * 100, 100).toFixed(1) %>%
+              </div>
+            </div>
+            <a href="/challenges/<%= challenge._id %>" class="btn">
+              <i class="fas fa-info-circle"></i> View Details
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No challenges available. <a href="/challenges/new" class="btn">Create a Challenge</a></p>
+    <% } %>
+  </main>
+</body>
+</html>

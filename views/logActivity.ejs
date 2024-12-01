@@ -1,0 +1,121 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log Activity</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ff0000, #ffcc00, #ffffff, #000000);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      text-shadow: 3px 3px #000;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px #000;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .log-section {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .log-entry {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .log-entry h3 {
+      margin: 0;
+    }
+
+    .btn {
+      background-color: #ff4500;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s ease-in-out;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background-color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Log Activity</h1>
+  </header>
+  <main>
+    <section class="log-section">
+      <h2>Summary</h2>
+      <p>Calories burned during physical challenges contribute directly to the <strong>Healthy Weight Challenge</strong>.</p>
+      <p>It takes approximately 3,500 calories burned to lose one pound of fat. Keep pushing yourself!</p>
+    </section>
+
+    <section class="log-section">
+      <% if (challenges && challenges.length > 0) { %>
+        <% challenges.forEach(function(challenge) { %>
+          <div class="log-entry">
+            <h3><%= challenge.name %>:</h3>
+            <p>
+              Progress: <%= challenge.progress %>/<%= challenge.goal %> | 
+              Calories Burned: 
+              <%= challenge.logs.reduce((total, log) => total + (log.caloriesBurned || 0), 0) %>
+            </p>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No challenges logged yet.</p>
+      <% } %>
+    </section>
+
+    <% if (healthyWeightChallenge) { %>
+      <section class="log-section">
+        <h2>Healthy Weight Challenge</h2>
+        <p>
+          Total Calories Burned: <%= healthyWeightChallenge.progress %>
+        </p>
+      </section>
+    <% } else { %>
+      <section class="log-section">
+        <p>The Healthy Weight Challenge is not available at this time.</p>
+      </section>
+    <% } %>
+
+    <a href="/challenges" class="btn">Back to Challenges</a>
+  </main>
+</body>
+</html>

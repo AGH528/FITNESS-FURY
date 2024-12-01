@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Fury Login</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ff0000, #ffcc00, #ffffff, #000000);
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 12px;
+      padding: 20px 40px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff4500, #ffcc00, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0px 0px 15px #ff4500;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="text"], input[type="password"] {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 100%;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      background-color: #ff4500;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #ffcc00;
+    }
+
+    .register-link {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .register-link a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="title">Fitness Fury</h1>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p class="register-link">
+      Don't have an account? <a href="/register">Sign up</a>
+    </p>
+  </div>
+</body>
+</html>

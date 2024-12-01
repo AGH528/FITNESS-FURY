@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge Details</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1><%= challenge.name %></h1>
+    <a href="/challenges" class="btn">Back to Challenges</a>
+  </header>
+
+  <main>
+    <p><strong>Description:</strong> <%= challenge.description %></p>
+    <p><strong>Goal:</strong> <%= challenge.goal %></p>
+    <p><strong>Progress:</strong> <%= challenge.progress %></p>  
+
+    <a href="/challenges/<%= challenge._id %>/edit" class="btn">Edit</a>
+  </main>
+</body>
+</html>

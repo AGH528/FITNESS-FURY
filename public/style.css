@@ -1,0 +1,108 @@
+body {
+    background: linear-gradient(to bottom right, #ff0000, #ffcc00, #ffffff, #000000);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .page-title {
+    font-size: 3rem;
+    color: #ffcc00;
+    text-shadow: 2px 2px 8px #000;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .btn-back-to-login {
+    display: inline-block;
+    background: #ff4500;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-back-to-login:hover {
+    background: #ffcc00;
+    color: #000;
+  }
+  
+  .btn {
+    display: inline-block;
+    background: #ff4500;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #ffcc00;
+    color: #000;
+  }
+  
+  .challenge-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  .challenge-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+  }
+  
+  .challenge-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .challenge-item h2 {
+    font-size: 1.8rem;
+    color: #ffcc00;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar-container {
+    background: #444;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    transition: width 0.5s ease;
+  }
+  
+  .progress-bar.low {
+    background: #ff4500;
+  }
+  
+  .progress-bar.medium {
+    background: #ffcc00;
+  }
+  
+  .progress-bar.high {
+    background: #32cd32;
+  }
+  
